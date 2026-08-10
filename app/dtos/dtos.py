@@ -7,3 +7,13 @@ class ScrapedRecipeDto:
     servings: str | None
     ingredients: list[str]
 
+@dataclass(frozen=True)
+class PlannedMealDto:
+    day: int
+    meal_type: str
+    recipe_url: str
+    people: int
+
+@dataclass(frozen=True)
+class ShoppingListDto:
+    meals: list[PlannedMealDto]
