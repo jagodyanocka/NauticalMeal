@@ -13,16 +13,15 @@ env/
 
 # uv
 .uv/
-uv.lock
 
 # Django
 *.log
 db.sqlite3
 db.sqlite3-journal
-/staticfiles/
-/mediafiles/
-/static/
-/media/
+staticfiles/
+mediafiles/
+static/
+media/
 
 # Environment variables
 .env

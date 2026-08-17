@@ -5,14 +5,14 @@ from app.services.scraper import fetch_recipe_data
 
 
 @transaction.atomic
-def create_recipe_from_url(url: str) -> tuple[Recipe, bool]:
+def save_recipe(url: str) -> None:
     existing_recipe = Recipe.objects.filter(
         source_url=url,
     ).first()
 
     if existing_recipe:
-        return existing_recipe, False
-
+        return existing_recipe
+# LOL Why do you scrape again lol? Fix this
     scraped = fetch_recipe_data(url)
 
     recipe = Recipe.objects.create(
@@ -30,5 +30,4 @@ def create_recipe_from_url(url: str) -> tuple[Recipe, bool]:
             for ingredient in scraped.ingredients
         ]
     )
-
-    return recipe, True
+    return None

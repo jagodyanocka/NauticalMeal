@@ -1,0 +1,27 @@
+:root {
+  --navy: #0d2b45;
+  --navy-soft: #274c6b;
+  --sea: #1b6ca8;
+  --sea-light: #4d9fd6;
+  --sky: #bfdff2;
+  --foam: #f2f8fc;
+  --white: #ffffff;
+  --line: #d9e8f2;
+  --danger: #b3453f;
+
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  color: var(--navy);
+  background-color: var(--foam);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
