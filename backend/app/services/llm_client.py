@@ -6,7 +6,7 @@ from openai import OpenAI
 from openai.types.chat import ChatCompletionSystemMessageParam, ChatCompletionUserMessageParam, \
     ChatCompletionMessageParam
 
-from app.ai.schemas import ShoppingList
+from app.ai.schemas import ListWithScale
 
 from pathlib import Path
 
@@ -23,7 +23,7 @@ api_key = os.getenv('OPENAI_API_KEY')
 ollama = OpenAI(base_url=OLLAMA_LOCAL_URL, api_key='ollama')
 gpt = OpenAI(api_key=api_key)
 
-def get_ai_result(recipes_data: list[str]) -> ShoppingList:
+def get_ai_result(recipes_data: list[dict]) -> ListWithScale:
     user_content = json.dumps(
         recipes_data,
         ensure_ascii=False,
@@ -51,4 +51,4 @@ def get_ai_result(recipes_data: list[str]) -> ShoppingList:
     if content is None:
         raise ValueError("Model returned an empty response")
 
-    return ShoppingList.model_validate_json(content)
+    return ListWithScale.model_validate_json(content)

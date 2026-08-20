@@ -28,7 +28,4 @@ def fetch_recipe_data(url: str) -> ScrapedRecipeDto:
         ingredients=scraper.ingredients(),
         servings=scraper.yields(),
     )
-
-    print("Scraped Stuff>>>>", scraped_stuff)
-
     return scraped_stuff
